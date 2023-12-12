@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import {
   ChevronsLeft,
   MenuIcon,
+  Plus,
   PlusCircle,
   Search,
   Settings,
@@ -143,6 +144,7 @@ const Navigation: React.FC = () => {
         </div>
         <div className="mt-4">
           <DocumentList level={0} />
+          <Item onClick={handleCreate} label="Add a page" icon={Plus} />
         </div>
         <div
           onMouseDown={handleMouseDown}
