@@ -167,11 +167,11 @@ export const restore = mutation({
             
         }
         
-        await context.db.patch(args.id, options);
+        const document = await context.db.patch(args.id, options);
 
         recursiveRestore(args.id);
 
-        return existingDocument;
+        return document;
     }
 });
 
@@ -199,7 +199,7 @@ export const remove = mutation({
         }
 
         const document = await context.db.delete(args.id);
-        
+
         return document;
     }
 })
