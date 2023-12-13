@@ -3,7 +3,7 @@
 import { api } from "@/convex/_generated/api";
 import { Doc, Id } from "@/convex/_generated/dataModel";
 import { useQuery } from "convex/react";
-import { redirect, useParams, useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { Item } from "./item";
 import { cn } from "@/lib/utils";
@@ -71,7 +71,7 @@ const DocumentList: React.FC<DocumentListProps> = ({
         <div key={document._id}>
           <Item
             id={document._id}
-            onClick={() => redirect(document._id)}
+            onClick={() => onRedirect(document._id)}
             label={document.title}
             icon={FileIcon}
             documentIcon={document.icon}
