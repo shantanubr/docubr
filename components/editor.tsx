@@ -19,7 +19,7 @@ interface EditorProps {
   editable?: boolean;
 }
 
-export const Editor: React.FC<EditorProps> = ({
+const Editor: React.FC<EditorProps> = ({
   onChange,
   initialContent,
   editable,
@@ -52,3 +52,5 @@ export const Editor: React.FC<EditorProps> = ({
     </div>
   );
 };
+
+export default Editor;
