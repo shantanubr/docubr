@@ -9,7 +9,7 @@ import {
   Settings,
   Trash,
 } from "lucide-react";
-import { useParams, usePathname } from "next/navigation";
+import { useParams, usePathname, useRouter } from "next/navigation";
 import React, { ElementRef, useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "usehooks-ts";
 import UserItem from "./user-item";
@@ -33,6 +33,7 @@ const Navigation: React.FC = () => {
   const settings = useSettings();
 
   const pathname = usePathname();
+  const router = useRouter();
   const params = useParams();
 
   const isMobile = useMediaQuery("(max-width: 768px)");
@@ -125,7 +126,7 @@ const Navigation: React.FC = () => {
   const handleCreate = () => {
     const promise = create({
       title: "Untitled",
-    });
+    }).then((documentId) => router.push(`/documents/${documentId}`));
     toast.promise(promise, {
       loading: "Creating a new doc..",
       success: "New doc created",
